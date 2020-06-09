@@ -1,0 +1,22 @@
+
+
+<div class="row row-cols-1 row-cols-md-4 mt-5 animated fadeIn" *ngIf="libros.length > 0">
+    <div class="col mb-4 puntero" (click)="verDetalle(libro,i)" *ngFor="let libro of libros,index as i">
+        <div class="card h-100" >
+            <img [src]="libro.img" class="d-block" [alt]="libro.nombre">
+            <div class="card-header bg-transparent" style="border: white;">
+                <h6 class="card-title">
+                    {{libro.nombre}}
+                    <div style="height: 17px;" *ngIf="libro.nombre.length <= 25"></div>
+                    <p class="card-title" style="font-size: 13px;">{{libro.autor}}</p>
+                </h6>
+            </div>
+            <div class="card-body text-right">
+                <b>
+                    <p>${{libro.precio | number}}</p>
+                </b>
+            </div>
+        </div>
+    </div>
+
+</div>
