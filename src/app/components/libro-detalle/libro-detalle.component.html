@@ -1,21 +1,17 @@
 <div class="row">
     <div class="col-sm-4 col-lg-3  animated fadeIn">
-        <img [src]="libro.img"  class="mx-auto d-block" [alt]="libro.nombre">
-        <ul class="list-group mt-2">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Tienda Region Metropolitana
-                <span class="badge badge-secondary badge-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Tienda Valparaiso
-                <span class="badge badge-secondary badge-pill">2</span>
+        <img [src]="libros[0]?.imagen"  class="mx-auto d-block" [alt]="libros[0]?.titulo">
+        <ul class="list-group mt-2" >
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let libro of libros">
+                {{libro.nombre}}
+                <span class="badge badge-secondary badge-pill">{{libro.sb_stocktotal}}</span>
             </li>
         </ul>
     </div>
     <div class="col-md-8 animated fadeIn">
-        <h3>{{libro.nombre}}</h3>
+        <h3>{{libros[0]?.titulo}}</h3>
         <hr>
-        <h6>Autor: <small>{{libro.autor}}</small> </h6>
-        <p>{{libro.desc}}</p>
+        <h6>Autor: <small>{{libros[0]?.autor}}</small> </h6>
+        <p>{{libros[0]?.descripcion}}</p>
     </div>
 </div>

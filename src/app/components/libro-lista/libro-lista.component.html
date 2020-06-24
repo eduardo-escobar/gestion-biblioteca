@@ -1,6 +1,6 @@
 <app-loading *ngIf="loading"></app-loading>
 
-<div class="alert alert-secondary animated fadeIn" role="alert" *ngIf="libros.length < 1 && !loading ">
+<div class="alert alert-secondary animated fadeIn" role="alert" *ngIf="libros?.length < 1 && !loading ">
     <h4 class="alert-heading">Búsqueda no encontrada</h4>
     <p>
         Su búsqueda  <strong class="alert-heading">{{busqueda}}</strong>  no arrojó ningún resultado. <br>

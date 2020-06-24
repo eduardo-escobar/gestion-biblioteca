@@ -10,13 +10,12 @@ import { Router } from '@angular/router';
 export class LibrosTarjetaComponent implements OnInit {
 
   @Input() libros: any = [];
-
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
   verDetalle = (libro: Libro, i: number) => {
-    this.router.navigate(['libro', libro.idx ? libro.idx : i]);
+    this.router.navigate(['libro', libro.idlibro]);
   }
 
 }

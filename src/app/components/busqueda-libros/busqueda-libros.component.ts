@@ -20,9 +20,12 @@ export class BusquedaLibrosComponent implements OnInit {
   constructor(private completerService: CompleterService,
               private servicioLibros: LibrosService,
               private router: Router) {
-    this.libros = this.servicioLibros.getAllBooks();
-    this.dataService = completerService.local(this.libros, 'nombre' , 'nombre');
-    this.libroSeleccionado = '';
+    this.servicioLibros.getAllBook().subscribe(lb => {
+      this.libros = lb;
+      this.dataService = completerService.local(this.libros, 'titulo', 'titulo');
+      this.libroSeleccionado = '';
+    });
+
   }
 
   ngOnInit(): void {

@@ -8,12 +8,18 @@ import { LibrosService, Libro } from 'src/app/services/libros.service';
 })
 export class HomeComponent implements OnInit {
 
-  libros: Libro[] = [];
+  libros: any[] = [];
   constructor(private servicioLibros: LibrosService) {
-    this.libros = this.servicioLibros.getAllBooks();
+    this.servicioLibros.getTopBooks()
+      .subscribe((lb: any) => { this.libros = lb; }, (error) => {
+        console.log(error);
+      });
   }
 
   ngOnInit(): void {
   }
 
+  getLibros() {
+
+  }
 }

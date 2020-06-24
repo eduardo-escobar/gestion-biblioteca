@@ -24,11 +24,22 @@ export class LibroListaComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   buscarLibro = (name: string) => {
-    setTimeout(() => {
-      this.libros = this.librosServicios.getAllBookByName(name);
+
+    this.librosServicios.getAllBook().subscribe((lb) => {
+
+      this.libros = [];
+      name = name.toLowerCase();
+
+      for (const libro of lb) {
+        const nombre = libro.titulo.toLowerCase();
+        if (nombre.indexOf(name) >= 0) {
+          this.libros.push(libro);
+        }
+      }
       this.loading = false;
-    }, 100);
+    });
 
   }
 }

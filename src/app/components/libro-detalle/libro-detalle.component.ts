@@ -9,12 +9,12 @@ import { LibrosService, Libro } from 'src/app/services/libros.service';
 })
 export class LibroDetalleComponent implements OnInit {
 
-  libro: Libro;
+  libros: any[] = [];
   constructor(private activatedRouter: ActivatedRoute,
               private libroServicio: LibrosService) {
     this.activatedRouter.params.subscribe(param => {
-      console.log('Hola Mundo');
-      this.libro = this.libroServicio.getBook(param['id']);
+      this.libroServicio.getBook(param['id'])
+                       .subscribe(lb => this.libros = lb);
     });
   }
 
