@@ -10,11 +10,16 @@ import { LibrosService, Libro } from 'src/app/services/libros.service';
 export class LibroDetalleComponent implements OnInit {
 
   libros: any[] = [];
+  loading = false;
   constructor(private activatedRouter: ActivatedRoute,
               private libroServicio: LibrosService) {
+    this.loading = true;
     this.activatedRouter.params.subscribe(param => {
       this.libroServicio.getBook(param['id'])
-                       .subscribe(lb => this.libros = lb);
+        .subscribe(lb => {
+          this.libros = lb
+          this.loading = false;
+        });
     });
   }
 

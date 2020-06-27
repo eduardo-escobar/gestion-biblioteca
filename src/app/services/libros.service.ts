@@ -10,7 +10,7 @@ export class LibrosService {
   constructor(private http: HttpClient) {}
 
   getQuery(query: string) {
-    const url = `http://localhost:3000/books${query}`;
+    const url = `http://ec2-18-229-140-152.sa-east-1.compute.amazonaws.com/api/v1/books${query}`;
     return this.http.get(url);
   }
   getAllBook = () => {
